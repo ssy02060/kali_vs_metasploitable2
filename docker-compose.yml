@@ -1,0 +1,22 @@
+version: "3"
+
+networks:
+  broker-net:
+    external:
+      name: broker
+
+services:
+  kali:
+    image: ssy02060/kali:latest
+    container_name: kali
+    networks:
+      broker-net:
+        ipv4_address: 172.33.0.2
+        
+  metasploitable2:
+    image: ssy02060/metasploitable:latest
+    container_name: metasploitable
+    networks:
+      broker-net:
+        ipv4_address: 172.33.0.3
+    
